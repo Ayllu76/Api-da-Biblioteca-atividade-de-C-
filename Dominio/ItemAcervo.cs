@@ -1,0 +1,19 @@
+namespace Biblioteca.Dominio;
+
+public abstract  class ItemAcervo
+{
+  public string Titulo { get; set; }  = string.Empty;
+   public string  Autor { get; set; }  = string.Empty;
+
+   public bool Disponibilidade { get; set; }  = true;
+
+   public abstract int PracoDevolucao {get; set;}
+   public abstract int MultaDiaAtrasado {get; set;}
+
+   public decimal CalcularMulta(int diasAtrasados) {
+    
+    return diasAtrasados >= 0 ? diasAtrasados * MultaDiaAtrasado : 0;
+   } 
+
+
+}

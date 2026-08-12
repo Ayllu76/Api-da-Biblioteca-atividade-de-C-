@@ -2,13 +2,24 @@ namespace Biblioteca.Dominio;
 
 public abstract  class ItemAcervo
 {
+  public ItemAcervo(string titulo, string autor)
+  {
+    if(string.IsNullOrWhiteSpace((titulo)))
+    { 
+    throw new ExececaoDominio("O titulo é obrigatorio :)");
+    }
+
+    Titulo = titulo;
+    Autor = autor;
+    
+  }
   public string Titulo { get; set; }  = string.Empty;
    public string  Autor { get; set; }  = string.Empty;
 
-   public bool Disponibilidade { get; set; }  = true;
+   public bool Disponibilidade { get; private set; }  = true;
 
-   public abstract int PracoDevolucao {get; set;}
-   public abstract int MultaDiaAtrasado {get; set;}
+   public abstract int PracoDevolucao {get;}
+   public abstract decimal MultaDiaAtrasado {get;}
 
    public decimal CalcularMulta(int diasAtrasados) {
     

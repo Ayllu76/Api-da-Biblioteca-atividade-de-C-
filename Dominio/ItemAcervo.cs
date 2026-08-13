@@ -2,7 +2,7 @@ namespace Biblioteca.Dominio;
 
 public abstract  class ItemAcervo
 {
-  public ItemAcervo(string titulo, string autor)
+  protected ItemAcervo(string titulo, string autor)
   {
     if(string.IsNullOrWhiteSpace((titulo)))
     { 
@@ -13,8 +13,8 @@ public abstract  class ItemAcervo
     Autor = autor;
     
   }
-  public string Titulo { get; set; }  = string.Empty;
-   public string  Autor { get; set; }  = string.Empty;
+  public string Titulo { get; private set; }  = string.Empty;
+   public string  Autor { get; private set; }  = string.Empty;
 
    public bool Disponibilidade { get; private set; }  = true;
 

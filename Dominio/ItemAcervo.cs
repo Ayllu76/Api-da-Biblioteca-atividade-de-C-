@@ -25,6 +25,22 @@ public abstract  class ItemAcervo
     
     return diasAtrasados >= 0 ? diasAtrasados * MultaDiaAtrasado : 0;
    } 
-
+  
+  public void MarcarComoDevolvido()
+  {
+    if(Disponibilidade)
+    {
+      throw new ExececaoDominio("O item já está disponível para empréstimo");
+    }
+    Disponibilidade = true;
+  }
+  public void MarcarComoEmprestado()
+  {
+    if(!Disponibilidade)
+    {
+      throw new ExececaoDominio("O item não está disponível para empréstimo");
+    }
+    Disponibilidade = false;
+  }
 
 }

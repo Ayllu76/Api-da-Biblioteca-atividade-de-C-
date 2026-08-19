@@ -20,6 +20,8 @@ public abstract  class ItemAcervo
 
    public abstract int PracoDevolucao {get;}
    public abstract decimal MultaDiaAtrasado {get;}
+  // Idade mínima recomendada para empréstimo (0 = sem restrição)
+  public virtual int FaixaEtaria { get; } = 0;
 
    public decimal CalcularMulta(int diasAtrasados) {
     

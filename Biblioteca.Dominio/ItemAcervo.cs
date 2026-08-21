@@ -1,9 +1,14 @@
 namespace Biblioteca.Dominio;
 
 public abstract  class ItemAcervo
-{
+{ 
+
+  private static int _proximoId = 1;
+
+  public int Id { get; }
   protected ItemAcervo(string titulo, string autor)
   {
+
     if(string.IsNullOrWhiteSpace((titulo)))
     { 
     throw new ExececaoDominio("O titulo é obrigatorio :)");
@@ -11,7 +16,7 @@ public abstract  class ItemAcervo
 
     Titulo = titulo;
     Autor = autor;
-    
+    Id = _proximoId++;
   }
   public string Titulo { get; private set; }  = string.Empty;
    public string  Autor { get; private set; }  = string.Empty;

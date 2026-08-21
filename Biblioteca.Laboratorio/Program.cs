@@ -90,3 +90,11 @@ var livroNovo = new Livro("O Cortiço", "Aluísio Azevedo");
 var revistaNova = new Revista("Piauí", "Alvinegra");
 Console.WriteLine($"Cena 6 - {livroNovo.Titulo} e o Id {livroNovo.Id}, " +
                   $"{revistaNova.Titulo} e o Id {revistaNova.Id}");
+
+
+
+
+var Leitor = new Leitor("Carlos", new DateTime(2000, 1, 1));
+var Leitor1 = new  Leitor("Maria", new DateTime(2005, 2, 3));
+Console.WriteLine($"Cena 7 - {Leitor.Nome} e o Id {Leitor.LeitorId}, " +
+                  $"{Leitor1.Nome} e o Id {Leitor1.LeitorId}");

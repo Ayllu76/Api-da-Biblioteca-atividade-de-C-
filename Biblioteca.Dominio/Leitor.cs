@@ -1,7 +1,16 @@
 namespace Biblioteca.Dominio;
 
+
+
 public record Leitor(string Nome, DateTime DataNascimento)
 {
+
+    private static int _proximoLeitorId = 1;
+
+        public int LeitorId { get; } = _proximoLeitorId++;
+
+    
+
     public int Idade
     {
         get

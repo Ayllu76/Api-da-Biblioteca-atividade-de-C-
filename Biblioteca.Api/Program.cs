@@ -1,11 +1,18 @@
- using Biblioteca.Dominio;
+
+
+using Biblioteca.Api;
+using Biblioteca.Dominio;
 
 var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
+var api = builder.Build();
 
-ItemAcervo Livro = new Livro("Pikinu Principi", "jucinto");
+var acervo = new Acervo();
+var cadastro = new Cadastro();
+Seed.Popular(acervo, cadastro);
 
-app.MapGet("/", () => "Hello World!");
+api.MapGet("/itens", () => acervo.Itens);
+api.MapGet("/", () => Results.Redirect("/itens"));
 
 
-app.Run();
+
+api.Run();
